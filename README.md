@@ -8,7 +8,7 @@
 Useful tools for developer and people working in IT. <a href="https://it-tools.tech">Try it!</a>
 </p>
 
-## Functionalities and roadmap test
+## Functionalities and roadmap a
 
 Please check the [issues](https://github.com/CorentinTh/it-tools/issues) to see if some feature listed to be implemented.
 
