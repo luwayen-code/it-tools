@@ -16,7 +16,8 @@ import markdown from 'vite-plugin-vue-markdown';
 import svgLoader from 'vite-svg-loader';
 import { configDefaults } from 'vitest/config';
 
-const baseUrl = process.env.BASE_URL ?? '/';
+// Vercel 部署时自动使用 /it-tools 作为 base，本地开发保持 /
+const baseUrl = process.env.BASE_URL ?? (process.env.VERCEL ? '/it-tools' : '/');
 
 // https://vitejs.dev/config/
 export default defineConfig({

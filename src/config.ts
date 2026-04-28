@@ -17,7 +17,7 @@ export const config = figue({
     baseUrl: {
       doc: 'Application base url',
       format: 'string',
-      default: '/',
+      default: import.meta.env.BASE_URL,
       env: 'BASE_URL',
     },
     env: {
