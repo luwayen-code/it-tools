@@ -1,3 +1,9 @@
 {
-  "routes": [{ "handle": "filesystem" }, { "src": "/(.*)", "dest": "/index.html" }]
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/it-tools/(.*)", "dest": "/$1" },
+    { "handle": "filesystem" },
+    { "src": "/it-tools", "dest": "/index.html" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
 }
