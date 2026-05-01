@@ -7,7 +7,6 @@ import { Heart, Home2, Menu2 } from '@vicons/tabler';
 import { storeToRefs } from 'pinia';
 import HeroGradient from '../assets/hero-gradient.svg?component';
 import MenuLayout from '../components/MenuLayout.vue';
-import NavbarButtons from '../components/NavbarButtons.vue';
 import { useStyleStore } from '@/stores/style.store';
 import { config } from '@/config';
 import type { ToolCategory } from '@/tools/tools.types';
@@ -17,8 +16,6 @@ import CollapsibleToolMenu from '@/components/CollapsibleToolMenu.vue';
 
 const themeVars = useThemeVars();
 const styleStore = useStyleStore();
-const version = config.app.version;
-const commitSha = config.app.lastCommitSha.slice(0, 7);
 
 const { tracker } = useTracker();
 const { t } = useI18n();
@@ -51,41 +48,11 @@ const tools = computed<ToolCategory[]>(() => [
       <div class="sider-content">
         <div v-if="styleStore.isSmallScreen" flex flex-col items-center>
           <locale-selector w="90%" />
-
-          <div flex justify-center>
-            <NavbarButtons />
-          </div>
         </div>
 
         <CollapsibleToolMenu :tools-by-category="tools" />
 
-        <div class="footer">
-          <div>
-            IT-Tools
 
-            <c-link target="_blank" rel="noopener" :href="`https://github.com/CorentinTh/it-tools/tree/v${version}`">
-              v{{ version }}
-            </c-link>
-
-            <template v-if="commitSha && commitSha.length > 0">
-              -
-              <c-link
-                target="_blank"
-                rel="noopener"
-                type="primary"
-                :href="`https://github.com/CorentinTh/it-tools/tree/${commitSha}`"
-              >
-                {{ commitSha }}
-              </c-link>
-            </template>
-          </div>
-          <div>
-            © {{ new Date().getFullYear() }}
-            <c-link target="_blank" rel="noopener" href="https://corentin.tech?utm_source=it-tools&utm_medium=footer">
-              Corentin Thomasset
-            </c-link>
-          </div>
-        </div>
       </div>
     </template>
 
@@ -115,10 +82,6 @@ const tools = computed<ToolCategory[]>(() => [
         <command-palette />
 
         <locale-selector v-if="!styleStore.isSmallScreen" />
-
-        <div>
-          <NavbarButtons v-if="!styleStore.isSmallScreen" />
-        </div>
 
         <c-tooltip position="bottom" :tooltip="$t('home.support')">
           <c-button
@@ -163,13 +126,6 @@ const tools = computed<ToolCategory[]>(() => [
     padding-left: 30px;
     padding-right: 30px;
   }
-}
-
-.footer {
-  text-align: center;
-  color: #838587;
-  margin-top: 20px;
-  padding: 20px 0;
 }
 
 .sider-content {
