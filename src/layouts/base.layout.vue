@@ -83,20 +83,6 @@ const tools = computed<ToolCategory[]>(() => [
 
         <locale-selector v-if="!styleStore.isSmallScreen" />
 
-        <c-tooltip position="bottom" :tooltip="$t('home.support')">
-          <c-button
-            round
-            href="https://www.buymeacoffee.com/cthmsst"
-            rel="noopener"
-            target="_blank"
-            class="support-button"
-            :bordered="false"
-            @click="() => tracker.trackEvent({ eventName: 'Support button clicked' })"
-          >
-            {{ $t('home.buyMeACoffee') }}
-            <NIcon v-if="!styleStore.isSmallScreen" :component="Heart" ml-2 />
-          </c-button>
-        </c-tooltip>
       </div>
       <slot />
     </template>
